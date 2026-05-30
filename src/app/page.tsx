@@ -140,7 +140,7 @@ export default function Home() {
           <div className="hidden items-center gap-8 text-sm font-bold text-slate-200 md:flex">
             <a href="#recebe" className="hover:text-white">O que você recebe</a><a href="#bonus" className="hover:text-white">Bônus</a><a href="#depoimentos" className="hover:text-white">Depoimentos</a><a href="#faq" className="hover:text-white">FAQ</a>
           </div>
-          <a href="#preco"><Button className="px-6 py-3">🚀 Quero acesso imediato</Button></a>
+          <a href="#preco"><Button className="px-6 py-3">🚀 Quero criar meu produto agora</Button></a>
         </nav>
       </header>
 
@@ -155,7 +155,7 @@ export default function Home() {
                 <div key={text} className="flex items-center gap-3 text-sm font-black"><div className="grid h-11 w-11 place-items-center rounded-full border border-violet-300/25 bg-violet-500/20 text-violet-200 shadow-[0_0_22px_rgba(168,85,247,.35)]"><Icon size={20} /></div><span>{text}</span></div>
               ))}
             </div>
-            <div className="flex flex-col gap-4 sm:flex-row"><a href="#preco"><Button>🚀 Quero acessar agora <ArrowRight className="ml-2" size={18} /></Button></a><a href="#biblioteca"><Button variant="secondary"><Play className="mr-2" size={18} /> Ver produto demo</Button></a></div>
+            <div className="flex flex-col gap-4 sm:flex-row"><a href="#preco"><Button>🚀 Quero criar agora <ArrowRight className="ml-2" size={18} /></Button></a><a href="#biblioteca"><Button variant="secondary"><Play className="mr-2" size={18} /> Ver produto demo</Button></a></div>
             <div className="flex items-center gap-4 pt-1"><div className="flex -space-x-3">{["L", "J", "R"].map((letter) => <div key={letter} className="grid h-11 w-11 place-items-center rounded-full border-2 border-[#060914] bg-gradient-to-br from-violet-400 to-fuchsia-500 text-sm font-black">{letter}</div>)}</div><div><div className="tracking-[.2em] text-yellow-300">★★★★★</div><p className="text-sm text-slate-300"><b>Mais de 1.500 empreendedores</b><br />já estão criando com IA</p></div></div>
           </div>
 
@@ -173,9 +173,30 @@ export default function Home() {
         <div className="mt-12 grid rounded-2xl border border-white/10 bg-white/[0.045] p-5 shadow-2xl md:grid-cols-5">{[[BookOpen, "100+", "Prompts prontos", "para usar"], [Layers, "8", "Categorias", "completas"], [Users, "Para todos", "Empreendedores,", "agências e criadores"], [Zap, "Resultados rápidos", "Crie, teste e valide", "em tempo recorde"], [ShieldCheck, "100% Seguro", "Comandos testados", "para reduzir erros"]].map(([Icon, big, line1, line2]: any) => <div key={big} className="flex items-center gap-4 px-4 py-3 md:border-r md:border-white/10 last:border-r-0"><Icon className="text-violet-400" size={40} /><div><div className="text-lg font-black">{big}</div><div className="text-sm text-slate-300">{line1}<br />{line2}</div></div></div>)}</div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-6 py-12">
+        <SectionTitle eyebrow="Crie produtos reais" title="O que você consegue criar com a biblioteca" />
+
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {[
+            ["🚀", "MVPs e SaaS", "Planeje, estruture e tire sua ideia do papel com prompts prontos."],
+            ["💻", "Landing Pages", "Crie páginas de venda com copy, oferta, FAQ, bônus e CTA."],
+            ["⚙️", "Automações", "Monte fluxos, integrações, dashboards e processos automáticos."],
+            ["💰", "Produtos digitais", "Transforme conhecimento em ofertas vendáveis e escaláveis."],
+          ].map(([emoji, title, desc]) => (
+            <div key={title} className="rounded-3xl border border-white/10 bg-white/[0.045] p-6 shadow-xl">
+              <div className="mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-violet-500/20 text-3xl">
+                {emoji}
+              </div>
+              <h3 className="mb-2 text-lg font-black">{title}</h3>
+              <p className="text-sm leading-7 text-slate-300">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section id="recebe" className="mx-auto max-w-7xl px-6 py-12"><SectionTitle eyebrow="Tudo que você precisa" title="O que você vai receber" /><div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">{[[BookOpen, "Biblioteca com 100+ prompts", "Prompts prontos e testados para cada etapa da criação do seu produto."], [Layers, "8 categorias completas", "MVP, Design, Banco de dados, Autenticação, SEO, Monetização e Correções."], [Gift, "Frameworks e checklists", "Estruturas passo a passo para planejar, criar, lançar e escalar."], [Rocket, "Atualizações gratuitas", "Novos prompts e estratégias adicionados constantemente."], [Star, "Estratégias de monetização", "Modelos de oferta, precificação, upsell, copy e muito mais."], [Users, "Suporte via comunidade", "Tire dúvidas e troque experiências com outros criadores."]].map(([Icon, title, desc]: any) => <div key={title} className="rounded-3xl border border-white/10 bg-white/[0.045] p-6 shadow-xl"><div className="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-violet-500/20 text-violet-300"><Icon size={24} /></div><h3 className="mb-2 font-black">{title}</h3><p className="text-sm leading-7 text-slate-300">{desc}</p></div>)}</div></section>
 
-      <section id="bonus" className="mx-auto grid max-w-7xl gap-6 px-6 py-8 lg:grid-cols-[1.05fr_.95fr]"><div className="rounded-3xl border border-white/10 bg-white/[0.045] p-8 shadow-2xl"><h2 className="mb-6 text-2xl font-black text-violet-300">🎁 Bônus exclusivos</h2><div className="space-y-3">{bonuses.map(([emoji, title, desc, price]) => <div key={title} className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.045] p-4"><div className="flex gap-4"><div className="text-2xl">{emoji}</div><div><b>{title}</b><p className="text-sm text-slate-300">{desc}</p></div></div><span className="rounded-lg bg-violet-600 px-3 py-1 font-black">{price}</span></div>)}</div><div className="mt-5 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-500 p-3 text-center font-black">Valor total dos bônus: R$ 388</div></div><div id="preco" className="rounded-3xl border border-violet-400/40 bg-[radial-gradient(circle_at_top_left,rgba(168,85,247,.78),transparent_42%),linear-gradient(135deg,#24113c,#f7f0ff)] p-8 text-white shadow-[0_0_70px_rgba(168,85,247,.25)]"><span className="inline-block rounded-xl bg-yellow-300 px-4 py-2 text-sm font-black text-slate-950">OFERTA DE LANÇAMENTO</span><div className="my-6"><span className="text-4xl font-black">R$</span> <span className="text-7xl font-black">47</span> <span className="text-violet-100">acesso vitalício</span></div><div className="mb-6 space-y-2 font-semibold text-white"><p>✅ Acesso vitalício à biblioteca completa</p><p>✅ Atualizações gratuitas para sempre</p><p>✅ Suporte via comunidade</p><p>✅ 7 dias de garantia incondicional</p></div><a href="#biblioteca"><Button className="w-full">🚀 Quero acesso imediato</Button></a><p className="mt-4 text-center text-sm text-violet-100">Pagamento seguro • Acesso imediato</p></div></section>
+      <section id="bonus" className="mx-auto grid max-w-7xl gap-6 px-6 py-8 lg:grid-cols-[1.05fr_.95fr]"><div className="rounded-3xl border border-white/10 bg-white/[0.045] p-8 shadow-2xl"><h2 className="mb-6 text-2xl font-black text-violet-300">🎁 Bônus exclusivos</h2><div className="space-y-3">{bonuses.map(([emoji, title, desc, price]) => <div key={title} className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.045] p-4"><div className="flex gap-4"><div className="text-2xl">{emoji}</div><div><b>{title}</b><p className="text-sm text-slate-300">{desc}</p></div></div><span className="rounded-lg bg-violet-600 px-3 py-1 font-black">{price}</span></div>)}</div><div className="mt-5 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-500 p-3 text-center font-black">Valor total dos bônus: R$ 388</div></div><div id="preco" className="rounded-3xl border border-violet-400/40 bg-[radial-gradient(circle_at_top_left,rgba(168,85,247,.78),transparent_42%),linear-gradient(135deg,#24113c,#f7f0ff)] p-8 text-white shadow-[0_0_70px_rgba(168,85,247,.25)]"><span className="inline-block rounded-xl bg-yellow-300 px-4 py-2 text-sm font-black text-slate-950">OFERTA DE LANÇAMENTO</span><div className="my-6"><span className="text-4xl font-black">R$</span> <span className="text-7xl font-black">47</span> <span className="text-violet-100">acesso vitalício</span></div><div className="mb-6 space-y-2 font-semibold text-white"><p>✅ Acesso vitalício à biblioteca completa</p><p>✅ Atualizações gratuitas para sempre</p><p>✅ Suporte via comunidade</p><p>✅ 7 dias de garantia incondicional</p></div><a href="#biblioteca"><Button className="w-full">🚀 Quero criar meu produto agora</Button></a><p className="mt-4 text-center text-sm text-violet-100">Pagamento seguro • Acesso imediato</p></div></section>
 
       <section id="faq" className="mx-auto max-w-7xl px-6 py-8"><div className="rounded-3xl border border-white/10 bg-white/[0.045] p-8 shadow-2xl"><h2 className="mb-6 text-2xl font-black text-violet-300"><HelpCircle className="mr-2 inline" size={24} /> Dúvidas frequentes</h2>{["Como funciona o acesso?", "Por quanto tempo tenho acesso?", "Recebo atualizações?", "Como recebo os bônus?"].map((q) => <details key={q} className="mb-3 rounded-xl border border-white/10 bg-white/[0.045] p-4"><summary className="cursor-pointer font-bold">{q}</summary><p className="mt-3 text-slate-300">Após a compra, você recebe acesso ao material e pode usar os prompts sempre que quiser.</p></details>)}</div></section>
 
@@ -183,7 +204,7 @@ export default function Home() {
 
       <section id="depoimentos" className="mx-auto max-w-7xl px-6 pb-12"><h2 className="mb-6 text-2xl font-black text-violet-300">👥 Quem já está criando produtos com IA</h2><div className="grid gap-5 md:grid-cols-3">{testimonials.map(([name, role, text]) => <div key={name} className="rounded-3xl border border-white/10 bg-white/[0.045] p-6 shadow-xl"><div className="mb-3 text-yellow-300">★★★★★</div><p className="mb-4 leading-7 text-slate-200">“{text}”</p><b>{name}</b><p className="text-sm text-slate-400">{role}</p></div>)}</div></section>
 
-      <section className="mx-auto max-w-5xl px-6 pb-20"><div className="rounded-[2rem] border border-violet-400/30 bg-gradient-to-br from-violet-700 to-fuchsia-600 p-10 text-center text-white shadow-[0_0_80px_rgba(168,85,247,.3)]"><BadgeCheck className="mx-auto mb-5" size={56} /><h2 className="mx-auto max-w-3xl text-4xl font-black tracking-tight md:text-5xl">Pronto para criar seu primeiro produto com IA?</h2><p className="mx-auto my-6 max-w-2xl text-lg text-violet-100">Mais de 100 prompts, bônus exclusivos, atualizações vitalícias e garantia de 7 dias.</p><a href="#preco"><Button variant="white">🚀 Quero acesso imediato</Button></a></div></section>
+      <section className="mx-auto max-w-5xl px-6 pb-20"><div className="rounded-[2rem] border border-violet-400/30 bg-gradient-to-br from-violet-700 to-fuchsia-600 p-10 text-center text-white shadow-[0_0_80px_rgba(168,85,247,.3)]"><BadgeCheck className="mx-auto mb-5" size={56} /><h2 className="mx-auto max-w-3xl text-4xl font-black tracking-tight md:text-5xl">Pronto para transformar sua ideia em um produto vendável?</h2><p className="mx-auto my-6 max-w-2xl text-lg text-violet-100">Acesse a biblioteca completa, copie os prompts e comece a construir seu primeiro MVP, página de vendas ou automação ainda hoje.</p><a href="#preco"><Button variant="white">🚀 Quero criar meu produto agora</Button></a></div></section>
     </main>
   );
 }
