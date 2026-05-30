@@ -84,21 +84,84 @@ function PromptCard({ prompt }: { prompt: (typeof prompts)[number] }) {
   );
 }
 
-function FactoryArt() {
+function DashboardMockup() {
   return (
-    <div className="relative h-[260px] w-full overflow-hidden rounded-[2rem]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_55%_35%,rgba(168,85,247,.9),transparent_35%),radial-gradient(circle_at_40%_75%,rgba(236,72,153,.55),transparent_30%)]" />
-      <div className="absolute bottom-6 left-1/2 h-24 w-72 -translate-x-1/2 rotate-[-5deg] rounded-[2rem] border border-violet-300/30 bg-violet-950/85 shadow-[0_0_90px_rgba(168,85,247,.9)]" />
-      <div className="absolute left-1/2 top-[42%] h-28 w-64 -translate-x-1/2 rounded-2xl border border-violet-200/40 bg-gradient-to-br from-violet-500 to-purple-950 shadow-[0_0_60px_rgba(217,70,239,.45)]">
-        <div className="absolute -top-14 left-10 h-16 w-12 rounded-t-2xl border border-violet-200/30 bg-gradient-to-b from-violet-200 to-violet-800" />
-        <div className="absolute -top-11 left-24 h-14 w-24 bg-gradient-to-br from-violet-400 to-purple-900 [clip-path:polygon(0_100%,0_35%,28%_72%,52%_35%,100%_78%,100%_100%)]" />
-        {[26, 78, 130, 182].map((x) => (
-          <div key={x} className="absolute top-10 h-10 w-8 rounded-lg bg-fuchsia-400 shadow-[0_0_30px_rgba(217,70,239,.95)]" style={{ left: x }} />
+    <div className="relative h-[270px] w-full overflow-hidden rounded-[2rem] border border-violet-300/20 bg-[#0b1020] p-5 shadow-[0_0_70px_rgba(168,85,247,.35)]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(217,70,239,.35),transparent_30%),radial-gradient(circle_at_30%_80%,rgba(124,58,237,.35),transparent_34%)]" />
+
+      <div className="relative z-10 mb-4 flex items-center justify-between">
+        <div>
+          <p className="text-xs font-black text-violet-200">DASHBOARD IA</p>
+          <h3 className="text-lg font-black text-white">Produto Digital</h3>
+        </div>
+        <span className="rounded-full bg-emerald-400 px-3 py-1 text-xs font-black text-slate-950">AO VIVO</span>
+      </div>
+
+      <div className="relative z-10 grid grid-cols-3 gap-3">
+        {[
+          ["Receita", "R$12.450"],
+          ["Leads", "1.842"],
+          ["Conversão", "7.8%"],
+        ].map(([label, value]) => (
+          <div key={label} className="rounded-2xl border border-white/10 bg-white/10 p-3">
+            <p className="text-[11px] font-bold text-slate-300">{label}</p>
+            <p className="mt-1 text-lg font-black text-white">{value}</p>
+          </div>
         ))}
       </div>
-      <div className="absolute right-12 top-8 grid h-16 w-16 place-items-center rounded-2xl border border-violet-200/30 bg-white/10 text-white shadow-[0_0_45px_rgba(168,85,247,.7)]">{"</>"}</div>
-      <div className="absolute bottom-10 left-10 grid h-14 w-14 place-items-center rounded-2xl border border-fuchsia-200/30 bg-white/10 text-white shadow-[0_0_45px_rgba(217,70,239,.7)]"><Zap size={24} /></div>
+
+      <div className="relative z-10 mt-4 rounded-2xl border border-white/10 bg-white/10 p-4">
+        <div className="mb-3 flex items-center justify-between">
+          <span className="text-xs font-bold text-slate-300">Crescimento</span>
+          <span className="text-xs font-black text-emerald-300">+38%</span>
+        </div>
+        <div className="flex h-24 items-end gap-2">
+          {[35, 48, 42, 65, 58, 72, 88, 76, 94].map((h, index) => (
+            <div
+              key={index}
+              className="flex-1 rounded-t-lg bg-gradient-to-t from-violet-600 to-fuchsia-400 shadow-[0_0_18px_rgba(217,70,239,.45)]"
+              style={{ height: `${h}%` }}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="relative z-10 mt-4 grid grid-cols-2 gap-3">
+        <div className="rounded-2xl border border-white/10 bg-white/10 p-3">
+          <p className="text-xs text-slate-300">Automações</p>
+          <p className="font-black text-white">24 ativas</p>
+        </div>
+        <div className="rounded-2xl border border-white/10 bg-white/10 p-3">
+          <p className="text-xs text-slate-300">MVPs criados</p>
+          <p className="font-black text-white">312</p>
+        </div>
+      </div>
     </div>
+  );
+}
+
+function SocialProofBar() {
+  return (
+    <section className="border-y border-white/10 bg-gradient-to-r from-violet-700 via-purple-700 to-fuchsia-600">
+      <div className="mx-auto grid max-w-7xl gap-4 px-6 py-4 text-center md:grid-cols-4">
+        <div>
+          <div className="text-yellow-300">★★★★★</div>
+          <p className="text-sm font-black text-white">4.9/5 de avaliação</p>
+        </div>
+        <div>
+          <p className="text-2xl font-black text-white">+1.500</p>
+          <p className="text-sm text-violet-100">empreendedores</p>
+        </div>
+        <div>
+          <p className="text-2xl font-black text-white">+300</p>
+          <p className="text-sm text-violet-100">MVPs criados</p>
+        </div>
+        <div>
+          <p className="text-2xl font-black text-white">+100</p>
+          <p className="text-sm text-violet-100">automações lançadas</p>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -144,10 +207,12 @@ export default function Home() {
         </nav>
       </header>
 
+      <SocialProofBar />
+
       <section className="mx-auto max-w-7xl px-6 pb-10 pt-16">
         <div className="grid items-center gap-14 lg:grid-cols-[1.02fr_.98fr]">
           <div className="space-y-7">
-            <div className="inline-flex items-center gap-2 rounded-full border border-violet-300/20 bg-white/[0.04] px-4 py-2 text-sm font-black text-violet-200"><Zap size={16} /> BIBLIOTECA PREMIUM DE PROMPTS</div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-violet-300/20 bg-white/[0.04] px-4 py-2 text-sm font-black text-violet-200"><Zap size={16} /> 🔥 BIBLIOTECA PREMIUM + BÔNUS EXCLUSIVOS</div>
             <h1 className="max-w-3xl text-5xl font-black leading-[.98] tracking-[-0.05em] md:text-[72px]">Transforme ideias em produtos digitais <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">com IA em minutos</span>, não meses.</h1>
             <p className="max-w-2xl text-lg leading-8 text-slate-300">Acesse mais de 100 prompts prontos, frameworks, checklists e estratégias para criar aplicativos, automações, landing pages, MVPs e negócios digitais sem precisar programar.</p>
             <div className="grid gap-4 sm:grid-cols-3">
@@ -164,7 +229,7 @@ export default function Home() {
             <div className="relative overflow-hidden rounded-[2rem] border border-violet-300/25 bg-white text-slate-950 shadow-[0_0_80px_rgba(168,85,247,.22)]">
               <div className="bg-gradient-to-br from-violet-700 via-purple-950 to-[#0b0d1a] p-8 text-white">
                 <div className="mb-6 flex items-center justify-between"><div className="flex items-center gap-3"><div className="grid h-12 w-12 place-items-center rounded-2xl bg-white/15"><BookOpen size={24} /></div><div><div className="text-lg font-black">Fábrica de Produtos IA</div><div className="text-sm text-violet-100">Biblioteca premium</div></div></div><span className="rounded-full bg-emerald-400 px-4 py-2 text-xs font-black text-slate-950">NOVO</span></div>
-                <div className="grid items-center gap-4 md:grid-cols-[.85fr_1.15fr]"><div><h2 className="mb-4 text-3xl font-black leading-tight md:text-4xl">Seu atalho para criar produtos com IA</h2><p className="leading-7 text-violet-100">Prompts organizados para transformar ideias em apps, ofertas, páginas de venda e automações.</p></div><FactoryArt /></div>
+                <div className="grid items-center gap-4 md:grid-cols-[.85fr_1.15fr]"><div><h2 className="mb-4 text-3xl font-black leading-tight md:text-4xl">Seu atalho para criar produtos com IA</h2><p className="leading-7 text-violet-100">Prompts organizados para transformar ideias em apps, ofertas, páginas de venda e automações.</p></div><DashboardMockup /></div>
               </div>
               <div className="grid gap-3 bg-white p-6">{[[Rocket, "MVPs com IA", "Crie a primeira versão do seu produto rapidamente."], [DollarSign, "Páginas que vendem", "Use estruturas de copy, oferta e conversão."], [Zap, "Automações e apps", "Monte fluxos, dashboards e sistemas sem complicação."]].map(([Icon, title, desc]: any) => <div key={title} className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-4"><div className="grid h-12 w-12 place-items-center rounded-xl bg-violet-100 text-violet-700"><Icon size={24} /></div><div><h3 className="font-black">{title}</h3><p className="text-sm text-slate-600">{desc}</p></div></div>)}</div>
             </div>
@@ -196,7 +261,7 @@ export default function Home() {
 
       <section id="recebe" className="mx-auto max-w-7xl px-6 py-12"><SectionTitle eyebrow="Tudo que você precisa" title="O que você vai receber" /><div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">{[[BookOpen, "Biblioteca com 100+ prompts", "Prompts prontos e testados para cada etapa da criação do seu produto."], [Layers, "8 categorias completas", "MVP, Design, Banco de dados, Autenticação, SEO, Monetização e Correções."], [Gift, "Frameworks e checklists", "Estruturas passo a passo para planejar, criar, lançar e escalar."], [Rocket, "Atualizações gratuitas", "Novos prompts e estratégias adicionados constantemente."], [Star, "Estratégias de monetização", "Modelos de oferta, precificação, upsell, copy e muito mais."], [Users, "Suporte via comunidade", "Tire dúvidas e troque experiências com outros criadores."]].map(([Icon, title, desc]: any) => <div key={title} className="rounded-3xl border border-white/10 bg-white/[0.045] p-6 shadow-xl"><div className="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-violet-500/20 text-violet-300"><Icon size={24} /></div><h3 className="mb-2 font-black">{title}</h3><p className="text-sm leading-7 text-slate-300">{desc}</p></div>)}</div></section>
 
-      <section id="bonus" className="mx-auto grid max-w-7xl gap-6 px-6 py-8 lg:grid-cols-[1.05fr_.95fr]"><div className="rounded-3xl border border-white/10 bg-white/[0.045] p-8 shadow-2xl"><h2 className="mb-6 text-2xl font-black text-violet-300">🎁 Bônus exclusivos</h2><div className="space-y-3">{bonuses.map(([emoji, title, desc, price]) => <div key={title} className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.045] p-4"><div className="flex gap-4"><div className="text-2xl">{emoji}</div><div><b>{title}</b><p className="text-sm text-slate-300">{desc}</p></div></div><span className="rounded-lg bg-violet-600 px-3 py-1 font-black">{price}</span></div>)}</div><div className="mt-5 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-500 p-3 text-center font-black">Valor total dos bônus: R$ 388</div></div><div id="preco" className="rounded-3xl border border-violet-400/40 bg-[radial-gradient(circle_at_top_left,rgba(168,85,247,.78),transparent_42%),linear-gradient(135deg,#24113c,#f7f0ff)] p-8 text-white shadow-[0_0_70px_rgba(168,85,247,.25)]"><span className="inline-block rounded-xl bg-yellow-300 px-4 py-2 text-sm font-black text-slate-950">OFERTA DE LANÇAMENTO</span><div className="my-6"><span className="text-4xl font-black">R$</span> <span className="text-7xl font-black">47</span> <span className="text-violet-100">acesso vitalício</span></div><div className="mb-6 space-y-2 font-semibold text-white"><p>✅ Acesso vitalício à biblioteca completa</p><p>✅ Atualizações gratuitas para sempre</p><p>✅ Suporte via comunidade</p><p>✅ 7 dias de garantia incondicional</p></div><a href="#biblioteca"><Button className="w-full">🚀 Quero criar meu produto agora</Button></a><p className="mt-4 text-center text-sm text-violet-100">Pagamento seguro • Acesso imediato</p></div></section>
+      <section id="bonus" className="mx-auto grid max-w-7xl gap-6 px-6 py-8 lg:grid-cols-[1.05fr_.95fr]"><div className="rounded-3xl border border-white/10 bg-white/[0.045] p-8 shadow-2xl"><h2 className="mb-6 text-2xl font-black text-violet-300">🎁 Bônus exclusivos</h2><div className="space-y-3">{bonuses.map(([emoji, title, desc, price]) => <div key={title} className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.045] p-4"><div className="flex gap-4"><div className="text-2xl">{emoji}</div><div><b>{title}</b><p className="text-sm text-slate-300">{desc}</p></div></div><span className="rounded-lg bg-violet-600 px-3 py-1 font-black">{price}</span></div>)}</div><div className="mt-5 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-500 p-3 text-center font-black">Valor total dos bônus: R$ 388</div></div><div id="preco" className="rounded-3xl border border-violet-300/50 bg-[radial-gradient(circle_at_top_left,rgba(217,70,239,.5),transparent_38%),linear-gradient(135deg,#140821,#5b21b6_45%,#c026d3)] p-8 text-white shadow-[0_0_90px_rgba(217,70,239,.38)]"><span className="inline-block rounded-xl bg-yellow-300 px-4 py-2 text-sm font-black text-slate-950">OFERTA DE LANÇAMENTO</span><div className="my-6"><span className="text-4xl font-black">R$</span> <span className="text-7xl font-black">47</span> <span className="text-violet-100">acesso vitalício</span></div><div className="mb-6 space-y-2 font-semibold text-white"><p>✅ Acesso vitalício à biblioteca completa</p><p>✅ Atualizações gratuitas para sempre</p><p>✅ Suporte via comunidade</p><p>✅ 7 dias de garantia incondicional</p></div><a href="#biblioteca"><Button className="w-full">🚀 Quero criar meu produto agora</Button></a><p className="mt-4 text-center text-sm text-violet-100">Pagamento seguro • Acesso imediato</p></div></section>
 
       <section id="faq" className="mx-auto max-w-7xl px-6 py-8"><div className="rounded-3xl border border-white/10 bg-white/[0.045] p-8 shadow-2xl"><h2 className="mb-6 text-2xl font-black text-violet-300"><HelpCircle className="mr-2 inline" size={24} /> Dúvidas frequentes</h2>{["Como funciona o acesso?", "Por quanto tempo tenho acesso?", "Recebo atualizações?", "Como recebo os bônus?"].map((q) => <details key={q} className="mb-3 rounded-xl border border-white/10 bg-white/[0.045] p-4"><summary className="cursor-pointer font-bold">{q}</summary><p className="mt-3 text-slate-300">Após a compra, você recebe acesso ao material e pode usar os prompts sempre que quiser.</p></details>)}</div></section>
 
@@ -204,7 +269,7 @@ export default function Home() {
 
       <section id="depoimentos" className="mx-auto max-w-7xl px-6 pb-12"><h2 className="mb-6 text-2xl font-black text-violet-300">👥 Quem já está criando produtos com IA</h2><div className="grid gap-5 md:grid-cols-3">{testimonials.map(([name, role, text]) => <div key={name} className="rounded-3xl border border-white/10 bg-white/[0.045] p-6 shadow-xl"><div className="mb-3 text-yellow-300">★★★★★</div><p className="mb-4 leading-7 text-slate-200">“{text}”</p><b>{name}</b><p className="text-sm text-slate-400">{role}</p></div>)}</div></section>
 
-      <section className="mx-auto max-w-5xl px-6 pb-20"><div className="rounded-[2rem] border border-violet-400/30 bg-gradient-to-br from-violet-700 to-fuchsia-600 p-10 text-center text-white shadow-[0_0_80px_rgba(168,85,247,.3)]"><BadgeCheck className="mx-auto mb-5" size={56} /><h2 className="mx-auto max-w-3xl text-4xl font-black tracking-tight md:text-5xl">Pronto para transformar sua ideia em um produto vendável?</h2><p className="mx-auto my-6 max-w-2xl text-lg text-violet-100">Acesse a biblioteca completa, copie os prompts e comece a construir seu primeiro MVP, página de vendas ou automação ainda hoje.</p><a href="#preco"><Button variant="white">🚀 Quero criar meu produto agora</Button></a></div></section>
+      <section className="mx-auto max-w-5xl px-6 pb-20"><div className="rounded-[2rem] border border-violet-400/30 bg-gradient-to-br from-violet-700 to-fuchsia-600 p-10 text-center text-white shadow-[0_0_80px_rgba(168,85,247,.3)]"><BadgeCheck className="mx-auto mb-5" size={56} /><h2 className="mx-auto max-w-3xl text-4xl font-black tracking-tight md:text-5xl">Pronto para transformar sua ideia em um produto vendável?</h2><p className="mx-auto my-6 max-w-2xl text-lg text-violet-100">Acesse a biblioteca completa, copie os prompts e comece a construir seu primeiro MVP, página de vendas ou automação ainda hoje. Oferta de lançamento por tempo limitado.</p><a href="#preco"><Button variant="white">🚀 Quero criar meu produto agora</Button></a></div></section>
     </main>
   );
 }
